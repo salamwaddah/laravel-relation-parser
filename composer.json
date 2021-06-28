@@ -1,37 +1,37 @@
 {
-  "name": "salamwaddah/laravel-relation-parser",
-  "description": "todo",
-  "type": "library",
-  "license": "MIT",
-  "keywords": [
-    "laravel"
-  ],
-  "support": {
-    "issues": "https://github.com/salamwaddah/laravel-relation-parser/issues",
-    "source": "https://github.com/salamwaddah/laravel-relation-parser"
-  },
-  "authors": [
-    {
-      "name": "Salam Waddah",
-      "email": "salamwaddah@gmail.com",
-      "homepage": "https://salamwaddah.com/",
-      "role": "Developer"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "SalamWaddah\\RelationParser\\": "src/",
-      "Tests\\": "tests/"
-    }
-  },
-  "require": {
-    "php": "^7.3",
-    "illuminate/support": "^8.0",
-    "illuminate/http": "^8.0",
-    "illuminate/database": "^8.0"
-  },
-  "minimum-stability": "dev",
-  "require-dev": {
-    "phpunit/phpunit": "^9.4"
-  }
+	"name": "salamwaddah/laravel-relation-parser",
+	"description": "todo",
+	"type": "library",
+	"license": "MIT",
+	"keywords": [
+		"laravel"
+	],
+	"support": {
+		"issues": "https://github.com/salamwaddah/laravel-relation-parser/issues",
+		"source": "https://github.com/salamwaddah/laravel-relation-parser"
+	},
+	"authors": [
+		{
+			"name": "Salam Waddah",
+			"email": "salamwaddah@gmail.com",
+			"homepage": "https://salamwaddah.com/",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"SalamWaddah\\RelationParser\\": "src/",
+			"Tests\\": "tests/"
+		}
+	},
+	"require": {
+		"php": ">=7.3",
+		"illuminate/support": "^8.0",
+		"illuminate/http": "^8.0",
+		"illuminate/database": "^8.0"
+	},
+	"minimum-stability": "stable",
+	"require-dev": {
+		"phpunit/phpunit": "^9.5"
+	}
 }
