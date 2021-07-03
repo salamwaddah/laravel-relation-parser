@@ -5,7 +5,7 @@ namespace SalamWaddah\RelationParser;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-trait LoadsRelation
+trait LoadsRelations
 {
     public function loadRelations($model, Request $request, string $loaderParam = 'with'): void
     {
