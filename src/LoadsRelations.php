@@ -9,7 +9,7 @@ trait LoadsRelations
 {
     public function loadRelations($model, Request $request, string $loaderParam = 'with'): void
     {
-        if (! $request->filled('with')) {
+        if (! $request->filled($loaderParam)) {
             return;
         }
 
