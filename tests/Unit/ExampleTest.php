@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace SalamWaddah\RelationParser\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
