@@ -7,22 +7,41 @@ use Illuminate\Http\Request;
 
 trait LoadsRelations
 {
-    public function loadRelations($model, Request $request, string $loaderParam = 'with'): void
+    public function loadRelations($model, Request $request, string $loaderParam = 'with', string $counterParam = 'with_count'): void
     {
-        if (! $request->filled($loaderParam)) {
+        $withRelations = $request->filled($loaderParam);
+        $withCounts = $request->filled($counterParam);
+
+        if (! $withRelations && ! $withCounts) {
             return;
         }
 
-        $requestedRelations = $request->get($loaderParam);
-
-        $relationsAsArray = array_filter(
-            explode(',', $requestedRelations)
-        );
+        $relationMethod = 'loadMissing';
+        $counterMethod = 'loadCount';
 
         if ($model instanceof Builder) {
-            $model->with($relationsAsArray);
-        } else {
-            $model->loadMissing($relationsAsArray);
+            $relationMethod = 'with';
+            $counterMethod = 'withCount';
+        }
+
+        if ($withRelations) {
+            $requestedRelations = $request->get($loaderParam);
+
+            $relationsAsArray = array_filter(
+                explode(',', $requestedRelations)
+            );
+
+            $model->$relationMethod($relationsAsArray);
+        }
+
+        if ($withCounts) {
+            $requestedCounts = $request->get($counterParam);
+
+            $countersAsArray = array_filter(
+                explode(',', $requestedCounts)
+            );
+
+            $model->$counterMethod($countersAsArray);
         }
     }
 }
