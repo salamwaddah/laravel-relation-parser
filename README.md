@@ -6,8 +6,7 @@ composer require salamwaddah/laravel-relation-parser
 
 ## Usage
 
-Allow your application client to load in the response any model relation without the need of changing your API
-controllers.
+Allow your application to load any model relation in the response without the need of changing your API controllers.
 
 Pass a comma separated relations to your http request.
 

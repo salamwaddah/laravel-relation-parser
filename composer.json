@@ -1,10 +1,12 @@
 {
 	"name": "salamwaddah/laravel-relation-parser",
-	"description": "todo",
+	"description": "Easily load model relations from frontend without changing your API",
 	"type": "library",
 	"license": "MIT",
 	"keywords": [
-		"laravel"
+		"laravel",
+		"model relations",
+		"relation loader"
 	],
 	"support": {
 		"issues": "https://github.com/salamwaddah/laravel-relation-parser/issues",
