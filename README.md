@@ -1,3 +1,7 @@
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/salamwaddah/laravel-relation-parser.svg?style=flat-square)](https://packagist.org/packages/salamwaddah/laravel-relation-parser)
+[![Total Downloads](https://img.shields.io/packagist/dt/salamwaddah/laravel-relation-parser.svg?style=flat-square)](https://packagist.org/packages/salamwaddah/laravel-relation-parser)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+
 ## Installation
 
 ```bash
