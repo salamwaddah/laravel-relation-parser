@@ -34,10 +34,14 @@
 	},
 	"minimum-stability": "stable",
 	"require-dev": {
-		"phpunit/phpunit": "^10.0"
+		"phpunit/phpunit": "^10.0",
+		"orchestra/testbench": "^8.5"
 	},
 	"scripts": {
 		"test": "vendor/bin/phpunit",
+		"post-autoload-dump": [
+			"@php vendor/bin/testbench package:discover --ansi"
+		],
 		"post-update-cmd": [
 			"cp vendor/hellochef-me/php-styles/pre-commit .git/hooks/pre-commit",
 			"chmod a+x .git/hooks/pre-commit"
