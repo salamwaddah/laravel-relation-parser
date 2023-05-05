@@ -14,4 +14,9 @@ class TestModel extends Model
     {
         return $this->hasMany(RelatedModel::class);
     }
+
+    public function anotherRelation(): HasMany
+    {
+        return $this->hasMany(RelatedModel::class);
+    }
 }
