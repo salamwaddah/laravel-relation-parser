@@ -99,8 +99,6 @@ in `loadRelations()` method.
 
 ## Testing
 
-TODO
-
 ```bash
 composer test
 ```
