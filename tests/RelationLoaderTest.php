@@ -26,9 +26,7 @@ class RelationLoaderTest extends TestCase
     public function no_relation_loaded_when_request_has_empty_relation(): void
     {
         $model = new TestModel();
-        $request = new Request();
-
-        $request->merge([
+        $request = new Request([
             'with' => ',',
         ]);
 
