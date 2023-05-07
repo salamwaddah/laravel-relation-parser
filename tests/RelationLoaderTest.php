@@ -64,16 +64,43 @@ class RelationLoaderTest extends TestCase
     }
 
     /** @test */
+    public function relation_loaded_using_custom_loader_param(): void
+    {
+        $model = new TestModel();
+        $request = new Request([
+            'include' => 'relatedModels',
+        ]);
+
+        $this->loadRelations($model, $request, 'include');
+
+        $this->assertTrue($model->relationLoaded('relatedModels'));
+    }
+
+    /** @test */
     public function multiple_relations_are_loaded_when_they_are_in_request(): void
     {
         $model = new TestModel();
         $request = new Request([
-            'with' => 'relatedModels,anotherRelation',
+            // add extra commas to test that they are ignored
+            'with' => 'relatedModels,anotherRelation,,,',
         ]);
 
         $this->loadRelations($model, $request);
 
         $this->assertTrue($model->relationLoaded('relatedModels'));
         $this->assertTrue($model->relationLoaded('anotherRelation'));
+    }
+
+    /** @test */
+    public function relation_loaded_when_model_is_query_builder(): void
+    {
+        $model = TestModel::query();
+        $request = new Request([
+            'with' => 'relatedModels',
+        ]);
+
+        $this->loadRelations($model, $request);
+
+        $this->assertTrue($model->getEagerLoads()['relatedModels'] instanceof \Closure);
     }
 }
