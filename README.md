@@ -8,6 +8,11 @@
 composer require salamwaddah/laravel-relation-parser
 ```
 
+| Version | Laravel  | PHP    |
+|---------|----------|--------|
+| 1.x     | 10       | >= 8.1 |
+| 0.3.x   | 8, 9, 10 | >= 7.3 |
+
 ## Usage
 
 Allow your application to load any model relation in the response without the need of changing your API controllers.
@@ -98,8 +103,6 @@ in `loadRelations()` method.
 > $this->loadRelations($users, $request, 'customWithParam', 'custom_with_count_param');
 
 ## Testing
-
-TODO
 
 ```bash
 composer test
