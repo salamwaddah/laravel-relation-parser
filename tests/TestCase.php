@@ -18,7 +18,7 @@ class TestCase extends BaseTestCase
      * @param Application $app
      * @return void
      */
-    protected function defineEnvironment($app)
+    protected function defineEnvironment($app): void
     {
         // Setup default database to use sqlite :memory:
         tap($app->make('config'), function (Repository $config) {
@@ -36,7 +36,7 @@ class TestCase extends BaseTestCase
      *
      * @return void
      */
-    protected function defineDatabaseMigrations()
+    protected function defineDatabaseMigrations(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
