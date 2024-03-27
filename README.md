@@ -10,7 +10,7 @@ composer require salamwaddah/laravel-relation-parser
 
 | Version | Laravel  | PHP    |
 |---------|----------|--------|
-| 1.x     | 10       | >= 8.1 |
+| 1.x     | 10, 11   | >= 8.1 |
 | 0.3.x   | 8, 9, 10 | >= 7.3 |
 
 ## Usage
