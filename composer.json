@@ -41,6 +41,5 @@
 		"post-autoload-dump": [
 			"@php vendor/bin/testbench package:discover --ansi"
 		]
-	},
-	"version": "1.1.0"
+	}
 }
