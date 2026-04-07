@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-relation-parser` will be documented in this file.
 
+## 1.0.1 - 2026-04-07
+
+- added support for Laravel 13
+
 ## 1.0.0 - 2023-05-07
 
 - [BREAKING] minimum PHP version is `>=8.1`
