@@ -5,6 +5,7 @@ All notable changes to `laravel-relation-parser` will be documented in this file
 ## 1.4.0 - 2026-04-13
 
 - added support for Laravel 13
+- more unit tests
 
 ## 1.3.0 - 2025-08-04
 
