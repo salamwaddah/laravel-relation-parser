@@ -8,10 +8,10 @@
 composer require salamwaddah/laravel-relation-parser
 ```
 
-| Version | Laravel    | PHP    |
-|---------|------------|--------|
-| 1.x     | 10, 11, 12 | >= 8.1 |
-| 0.3.x   | 8, 9       | >= 7.3 |
+| Version | Laravel        | PHP    |
+|---------|----------------|--------|
+| 1.x     | 10, 11, 12, 13 | >= 8.1 |
+| 0.3.x   | 8, 9           | >= 7.3 |
 
 ## Usage
 

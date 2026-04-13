@@ -2,6 +2,24 @@
 
 All notable changes to `laravel-relation-parser` will be documented in this file.
 
+## 1.4.0 - 2026-04-13
+
+- added support for Laravel 13
+- more unit tests
+
+## 1.3.0 - 2025-08-04
+
+- added support for Laravel 12
+
+## 1.2.0 - 2024-04-02
+
+- reduced dependencies
+- added unit testing workflows
+
+## 1.1.0 - 2024-03-27
+
+- added support for Laravel 11
+
 ## 1.0.0 - 2023-05-07
 
 - [BREAKING] minimum PHP version is `>=8.1`

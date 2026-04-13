@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use SalamWaddah\RelationParser\LoadsRelations;
 use SalamWaddah\RelationParser\Tests\Models\RelatedModel;
+use SalamWaddah\RelationParser\Tests\Models\RelatedToRelationModel;
 use SalamWaddah\RelationParser\Tests\Models\TestModel;
 
 class RelationCounterTest extends TestCase
@@ -17,7 +18,7 @@ class RelationCounterTest extends TestCase
     {
         $model = TestModel::query()->create();
 
-        // Create a related model
+        // Create a related model.
         RelatedModel::query()->create([
             'test_model_id' => $model->getKey(),
         ]);

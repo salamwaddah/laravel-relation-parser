@@ -5,6 +5,8 @@ namespace SalamWaddah\RelationParser\Tests;
 use Illuminate\Database\Eloquent\RelationNotFoundException;
 use Illuminate\Http\Request;
 use SalamWaddah\RelationParser\LoadsRelations;
+use SalamWaddah\RelationParser\Tests\Models\RelatedModel;
+use SalamWaddah\RelationParser\Tests\Models\RelatedToRelationModel;
 use SalamWaddah\RelationParser\Tests\Models\TestModel;
 
 class RelationLoaderTest extends TestCase
@@ -87,6 +89,31 @@ class RelationLoaderTest extends TestCase
 
         $this->assertTrue($model->relationLoaded('relatedModels'));
         $this->assertTrue($model->relationLoaded('anotherRelation'));
+    }
+
+    /** @test */
+    public function deeper_relations_are_loaded_when_they_are_in_request(): void
+    {
+        $model = TestModel::query()->create();
+
+        // Create a related model.
+        $related = RelatedModel::query()->create([
+            'test_model_id' => $model->getKey(),
+        ]);
+
+        // Create relation for the relation.
+        RelatedToRelationModel::query()->create([
+            'related_model_id' => $related->getKey(),
+        ]);
+
+        $request = new Request([
+            'with' => 'relatedModels.deeperRelation',
+        ]);
+
+        $this->loadRelations($model, $request);
+
+        $this->assertTrue($model->relationLoaded('relatedModels'));
+        $this->assertTrue($model->relatedModels->first()->relationLoaded('deeperRelation'));
     }
 
     /** @test */
