@@ -17,10 +17,17 @@ return new class extends Migration {
             $table->integer('test_model_id');
             $table->timestamps();
         });
+
+        Schema::create('related_to_relation_models', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('related_model_id');
+            $table->timestamps();
+        });
     }
 
     public function down(): void
     {
+        Schema::dropIfExists('related_to_relation_models');
         Schema::dropIfExists('related_models');
         Schema::dropIfExists('test_models');
     }
