@@ -35,13 +35,39 @@ trait LoadsRelations
         }
 
         if ($withCounts) {
-            $requestedCounts = $request->get($counterParam);
+            $counts = $this->parseRelations($request->get($counterParam));
 
-            $countersAsArray = array_filter(
-                explode(',', $requestedCounts)
-            );
+            $directCounts = [];
+            $nestedCountLoads = [];
 
-            $model->$counterMethod($countersAsArray);
+            foreach ($counts as $count) {
+                if (!str_contains($count, '.')) {
+                    $directCounts[] = $count;
+                    continue;
+                }
+
+                [$parent, $nested] = explode('.', $count, 2);
+
+                $nestedCountLoads[$parent] = function ($query) use ($nested) {
+                    $query->withCount($nested);
+                };
+            }
+
+            if ($directCounts) {
+                $model->$counterMethod($directCounts);
+            }
+
+            if ($nestedCountLoads) {
+                if ($model instanceof Builder) {
+                    $model->with($nestedCountLoads);
+                } else {
+                    $model->loadMissing($nestedCountLoads);
+                }
+            }
         }
+    }
+    protected function parseRelations($value): array
+    {
+        return array_values(array_filter(array_map('trim', explode(',', (string) $value))));
     }
 }
